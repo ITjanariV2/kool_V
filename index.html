@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .he {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 1em;
+            height: 75svh;
+        }
+        .in {
+            background-color: rgba(128, 128, 128, 0.5);
+            padding: 20px;
+            border-radius: 3px;
+            box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.472);
+        }
+      </style>
+</head>
+<body>
+<div class="he">
+        <p id="arrs"></p>
+    <div class="in">
+        <label for="number">Eemalda järjendist sõna</label>
+        <input type="text" id="kogus">
+        <button id="btn">Eemalda</button>
+    </div>
+</div>
+
+    <script type="text/javascript">
+        const btn = document.querySelector('#btn');
+
+        let arr = ['allveelaev', 'sügavas', 'käis', 'linnud', 'vees', 'kollane'];
+
+        document.querySelector('#arrs').innerHTML = arr;
+
+        btn.addEventListener('click', compute);
+
+        function compute() {
+            const val = document.querySelector('#kogus').value;
+
+            arr.map((el, i) => {
+                if (el == val) {
+                    arr.splice(i, 1);
+                    document.querySelector('#arrs').innerHTML = arr;
+                }
+            })
+        }
+    </script>
+
+</body>
+</html>
